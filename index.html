@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>For Shreya — Girlfriend Day</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{background:#050505;color:#f5eee9;font-family:Georgia,"Times New Roman",serif}
+#app{height:100dvh;width:100vw;position:relative;overflow:hidden;background:
+radial-gradient(circle at 50% 20%,#29131a 0,#0a0809 36%,#030303 75%)}
+.page{position:absolute;inset:0;padding:48px 22px 34px;display:flex;align-items:center;justify-content:center;
+opacity:0;visibility:hidden;transform:scale(1.025);transition:opacity .8s ease,transform .9s ease}
+.page.active{opacity:1;visibility:visible;transform:none}
+.wrap{width:min(430px,100%);height:min(91dvh,730px);position:relative;display:flex;flex-direction:column;align-items:center}
+.top{position:absolute;top:0;left:0;right:0;text-align:center;font:10px Arial,sans-serif;letter-spacing:3px;color:#c9b2a9}
+.top b{color:#ef6b85;font-weight:500}
+.chapter{margin-top:42px;text-align:center;color:#8d7b77;font:9px Arial,sans-serif;letter-spacing:4px;text-transform:uppercase}
+h1{font-size:45px;font-weight:400;line-height:1.03;margin:18px 0 8px;text-align:center}
+h2{font-size:30px;font-weight:400;line-height:1.08;margin:10px 0;text-align:center}
+.script{font-size:34px;font-style:italic;color:#e56a83;margin:8px 0}
+.sub{font:11px Arial,sans-serif;line-height:1.7;color:#a99b96;text-align:center;max-width:330px}
+.line{width:45px;height:1px;background:#9b5a68;margin:17px auto}
+button{border:1px solid #74414c;background:#160d10;color:#f2dce0;border-radius:3px;padding:12px 18px;
+font:10px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;cursor:pointer;min-height:44px}
+button:active{transform:scale(.97)}
+.spacer{flex:1}
+.heart{font-size:72px;animation:pulse 1.7s ease-in-out infinite;filter:drop-shadow(0 0 18px #e95e7c55)}
+@keyframes pulse{50%{transform:scale(1.1)}}
+.box{width:240px;height:175px;margin:24px auto 18px;position:relative;perspective:600px;cursor:pointer}
+.box .lid{position:absolute;left:0;top:0;width:100%;height:75px;background:#4a171e;border:1px solid #a34759;
+transform-origin:top;transition:.8s;z-index:3;clip-path:polygon(0 0,100% 0,50% 100%)}
+.box .base{position:absolute;bottom:0;left:0;width:100%;height:130px;background:#2b1015;border:1px solid #7b3040}
+.box.open .lid{transform:rotateX(145deg)}
+.box .ribbon{position:absolute;z-index:4;left:50%;top:0;bottom:0;width:15px;background:#b73c58;transform:translateX(-50%);opacity:.8}
+.polaroid{width:230px;background:#f3eee9;padding:9px 9px 38px;box-shadow:0 18px 45px #0009;transform:rotate(-3deg);
+margin:12px auto 20px;color:#382b2d;transition:.8s}
+.polaroid img{display:block;width:100%;height:235px;object-fit:cover;filter:saturate(.9)}
+.polaroid .caption{font:17px Georgia;margin-top:10px}
+.envelopes{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:270px;margin:18px auto}
+.env{height:95px;background:#1c0c10;border:1px solid #723140;position:relative;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.env:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,transparent 49%,#8e3c4c 50%,transparent 51%),linear-gradient(45deg,transparent 49%,#8e3c4c 50%,transparent 51%);opacity:.45}
+.env span{position:relative;z-index:2;font-size:12px;color:#e8cfd2}
+.reveal{display:none;width:100%;background:#100a0c;border:1px solid #542832;padding:18px;text-align:center;margin-top:10px}
+.reveal.show{display:block;animation:fade .7s}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.letter{width:100%;max-height:47dvh;overflow:auto;background:#eee5dc;color:#3e3030;padding:25px 21px;text-align:left;
+box-shadow:0 16px 45px #0008;line-height:1.75;font-size:14px}
+.letter::-webkit-scrollbar{display:none}
+.cursor{display:inline-block;width:2px;height:16px;background:#8e3f51;animation:blink .7s infinite}@keyframes blink{50%{opacity:0}}
+.progress{position:absolute;bottom:4px;left:50%;transform:translateX(-50%);font:9px Arial;color:#806e6d;letter-spacing:2px}
+#particles{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:20}
+.p{position:absolute;top:-30px;animation:fall linear forwards;font-size:18px}
+@keyframes fall{to{transform:translateY(110dvh) rotate(500deg);opacity:0}}
+.ambient{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:1}
+.a{position:absolute;bottom:-30px;animation:rise var(--d) ease-in infinite;animation-delay:var(--delay);left:var(--x);opacity:0;color:#d65b76}
+@keyframes rise{15%{opacity:.16}100%{transform:translate(var(--drift),-110dvh);opacity:0}}
+</style>
+</head>
+<body>
+<audio id="song" src="haareya.mp3" preload="auto" loop></audio>
+<div id="app">
+<div class="ambient" id="ambient"></div><div id="particles"></div>
+
+<section class="page active"><div class="wrap">
+<div class="chapter">01 · A LITTLE SOMETHING</div>
+<h1>For Shreya</h1><div class="script">Missu ♡</div><div class="line"></div>
+<div class="heart">♡</div>
+<p class="sub">A tiny surprise made by Rishi, just for you.</p><div class="spacer"></div>
+<button onclick="next()">begin the surprise</button><div class="progress">01 / 08</div>
+</div></section>
+
+<section class="page"><div class="wrap">
+<div class="chapter">02 · THE MEMORY BOX</div>
+<h2>A few moments<br>worth keeping</h2>
+<div class="box" id="box" onclick="openBox()"><div class="base"></div><div class="lid"></div><div class="ribbon"></div></div>
+<p class="sub">Tap the box to open it.</p><div class="spacer"></div><button id="boxBtn" style="display:none" onclick="next()">open the memories</button>
+<div class="progress">02 / 08</div></div></section>
+
+<section class="page"><div class="wrap">
+<div class="chapter">03 · MEMORY ONE</div>
+<div class="polaroid"><img src="shreya1.jpg"><div class="caption">One of my favourite little memories ♡</div></div>
+<p class="sub">Some moments are simple, but somehow they stay.</p><div class="spacer"></div><button onclick="next()">next memory</button><div class="progress">03 / 08</div>
+</div></section>
+
+<section class="page"><div class="wrap">
+<div class="chapter">04 · MEMORY TWO</div>
+<div class="polaroid" style="transform:rotate(3deg)"><img src="shreya2.jpg"><div class="caption">This one deserved a place here ♡</div></div>
+<p class="sub">Because Khushi deserves her own little gallery.</p><div class="spacer"></div><button onclick="next()">open the envelopes</button><div class="progress">04 / 08</div>
+</div></section>
+
+<section class="page"><div class="wrap">
+<div class="chapter">05 · FIVE LITTLE NOTES</div>
+<h2>Open them<br>one by one</h2>
+<div class="envelopes">
+<div class="env" onclick="reveal(0)"><span>♡ 01</span></div><div class="env" onclick="reveal(1)"><span>♡ 02</span></div>
+<div class="env" onclick="reveal(2)"><span>♡ 03</span></div><div class="env" onclick="reveal(3)"><span>♡ 04</span></div>
+<div class="env" onclick="reveal(4)" style="grid-column:1/3"><span>♡ 05</span></div>
+</div><div class="reveal" id="reveal"></div><div class="spacer"></div>
+<button id="envNext" style="display:none" onclick="next()">read my letter</button><div class="progress">05 / 08</div>
+</div></section>
+
+<section class="page"><div class="wrap">
+<div class="chapter">06 · A LETTER</div>
+<h2>Dear Shreya,</h2><div class="letter"><span id="typed"></span><span class="cursor" id="cursor"></span></div>
+<div class="spacer"></div><button id="letterNext" style="visibility:hidden" onclick="next()">one last thing</button><div class="progress">06 / 08</div>
+</div></section>
+
+<section class="page"><div class="wrap">
+<div class="chapter">07 · THE PROMISE</div>
+<div class="heart">♥</div><h2>A tiny promise</h2>
+<p class="sub">I'll keep making little things that remind you how special you are. And I'll keep saving the best memories for you.</p>
+<div class="line"></div><div class="script">always, Rishi ♡</div><div class="spacer"></div>
+<button onclick="next()">seal the promise</button><div class="progress">07 / 08</div>
+</div></section>
+
+<section class="page"><div class="wrap">
+<div class="chapter">08 · THE END</div>
+<div class="heart">❤️</div><h1>Happy<br>Girlfriend Day</h1><div class="script">Shreya · Missu · Khushi</div>
+<div class="line"></div><p class="sub">From Rishi, with a whole lot of love.</p><div class="spacer"></div>
+<button onclick="celebrate()">let it rain ♡</button><div class="progress">08 / 08</div>
+</div></section>
+</div>
+
+<script>
+const pages=[...document.querySelectorAll('.page')];let n=0,typed=false,opened=0;
+function update(){pages.forEach((p,i)=>p.classList.toggle('active',i===n));if(n===5&&!typed){typed=true;typeLetter()}}
+function next(){if(n<pages.length-1){n++;update()}}
+function openBox(){document.getElementById('box').classList.add('open');setTimeout(()=>document.getElementById('boxBtn').style.display='inline-block',700)}
+const notes=[
+"Missu, you have a way of making ordinary moments feel a little less ordinary. ♡",
+"Khushi, your smile deserves its own little celebration. ❤️",
+"You're genuinely one of those people who are easy to remember.",
+"Thank you for every tiny conversation and every little moment.",
+"And if you ever forget how special you are... come back here. ♡"
+];
+function reveal(k){const r=document.getElementById('reveal');r.textContent=notes[k];r.classList.remove('show');void r.offsetWidth;r.classList.add('show');opened++;if(opened>=3)document.getElementById('envNext').style.display='inline-block'}
+const letter=`Dear Shreya,
+
+I wanted this to feel a little more special than just saying “Happy Girlfriend's Day” in a message.
+
+So I made you this tiny world.
+
+Missu, Khushi, Shreya — whichever name I call you, you're still you, and that's the part I like most.
+
+Thank you for the little conversations, the smiles, the memories, and all the tiny things that make you special.
+
+I hope this makes you smile.
+
+Happy Girlfriend's Day. ❤️
+
+— Rishi`;
+function typeLetter(){let i=0,e=document.getElementById('typed');function t(){if(i<letter.length){e.textContent+=letter[i++];setTimeout(t,30)}else{document.getElementById('cursor').style.display='none';document.getElementById('letterNext').style.visibility='visible'}}t()}
+function celebrate(){const box=document.getElementById('particles');for(let i=0;i<110;i++){const p=document.createElement('span');p.className='p';p.textContent=['❤️','🌹','♡','✨','🌸'][Math.floor(Math.random()*5)];p.style.left=Math.random()*100+'vw';p.style.fontSize=15+Math.random()*22+'px';p.style.animationDuration=3+Math.random()*4+'s';p.style.animationDelay=Math.random()*1.5+'s';box.appendChild(p);setTimeout(()=>p.remove(),8500)}}
+for(let i=0;i<18;i++){const a=document.createElement('span');a.className='a';a.textContent=i%3?'♡':'♥';a.style.setProperty('--x',Math.random()*100+'%');a.style.setProperty('--d',8+Math.random()*8+'s');a.style.setProperty('--delay',Math.random()*7+'s');a.style.setProperty('--drift',(Math.random()*70-35)+'px');document.getElementById('ambient').appendChild(a)}
+update();
+
+const song=document.getElementById('song');
+song.volume=0.18;
+function startMusic(){
+  if(song && song.paused){ song.play().catch(()=>{}); }
+}
+document.addEventListener('pointerdown',startMusic,{once:true});
+document.addEventListener('touchstart',startMusic,{once:true});
+
+</script>
+</body></html>
